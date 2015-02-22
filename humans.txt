@@ -1,0 +1,10 @@
+# humanstxt.org/
+# php Coding using a greedy algorithm for working out change
+
+# DEVELOPER
+
+    Stephen Mizon 
+
+# TECHNOLOGY
+
+    CSS3, HTML5, PHP, jQuery, JQuery, SASS/SCSS, Modernizr, Normalize.css

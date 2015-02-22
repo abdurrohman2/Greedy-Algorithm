@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="mainform">
+            <div class="innerdiv">
+                <form name="getChange" id="getChange" action='calculate.php' method='POST' autocomplete="off">
+                    <h3>Calculate Change</h3>
+                    <table>
+                        <tr>
+                            <tb><input type='text' name='money' id='money1'></tb>
+                            
+                        </tr>
+                    </table>
+                    <input type='button' id="post" value='Submit'>    
+                </form>   
+                 
+            </div>
+            <!-- Right side div -->
+            <div id="formget">
+            <h2>Calculate Change</h2>
+                <p>This Script will Calculate Change using a Greedy Algorithm to work out the minimum number of coins needed. The coins will consist of the sterling pound and account for the common Sterling currency including £2, £1, 50p, 20p, 10p, 5p, 2p and 1p coins.</p>
+                 <div id="msg"></div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function()
+            {
+            
+            $("#post").click(function()
+            {
+                $("#getChange").submit(function(e)
+                {
+                    //$("#msg").html("<img src='img/loading.gif'/>");//
+                    var postData = $(this).serializeArray();
+                    var formURL = $(this).attr("action");
+
+                    $.ajax(
+                    {
+                        url : formURL,
+                        type: "POST",
+                        data : postData,
+                        success:function(data, textStatus, jqXHR) 
+                        {
+                            $("#msg").html('<center><p>'+data+'</p></center>');
+
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) 
+                        {
+                            $("#msg").html('<pre><code>AJAX Request Failed<br/> textStatus='+textStatus+', errorThrown='+errorThrown+'</code></pre>');
+                        }
+                    });
+                    e.preventDefault(); //STOP default action
+                    e.unbind();
+                });
+                    
+                $("#getChange").submit(); //SUBMIT FORM
+            });
+
+            });
+        </script>
+    </body>
+</html>
