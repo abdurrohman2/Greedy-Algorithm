@@ -7,4 +7,4 @@
 
 # TECHNOLOGY
 
-    CSS3, HTML5, PHP, jQuery, JQuery, SASS/SCSS, Modernizr, Normalize.css
+    CSS2, HTML5, PHP, jQuery, JQuery
